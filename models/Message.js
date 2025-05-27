@@ -1,12 +1,11 @@
+// models/Message.js
 const mongoose = require("mongoose");
 
 const MessageSchema = new mongoose.Schema({
-  sender: String,
-  room: String,
-  content: String,
-  type: { type: String, default: "text" },
-  seenBy: [String],
-  timestamp: { type: Date, default: Date.now },
+  room: { type: String, required: true },
+  user: { type: String, required: true },
+  message: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model("Message", MessageSchema);
